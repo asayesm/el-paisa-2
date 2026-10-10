@@ -1,0 +1,37 @@
+<header class="bg-dark text-white">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <p class="text-warning mb-2">Santa Anita, Lima</p>
+        <h1 class="display-4 fw-bold">{{ nombreNegocio | uppercase }}</h1>
+        <p class="lead">Ceviche fresco todos los días. Comida marina y criolla en {{ direccion }}.<br />Pide para llevar o delivery.</p>
+        <p>{{ fecha | date: 'dd/MM/yyyy' }}</p>
+        <a class="btn btn-warning btn-lg me-2" routerLink="/productos">Ver la carta</a>
+        <a class="btn btn-outline-light btn-lg" routerLink="/tienda">Pedir ahora</a>
+      </div>
+      <div class="col-md-5 mt-4 mt-md-0">
+        <img [src]="imagen" class="img-fluid rounded" alt="Ceviche" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="container py-5">
+  <div class="row text-center">
+    <div class="col-md-4">
+      <i class="bi bi-water fs-1 text-primary"></i>
+      <h5>Pescado del día</h5>
+      <p>Pescado fresco comprado cada mañana.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-bicycle fs-1 text-primary"></i>
+      <h5>Delivery</h5>
+      <p>Gratis por compras mayores a S/ 50.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="bi bi-clock fs-1 text-primary"></i>
+      <h5>Horario</h5>
+      <p>Lunes a domingo de 8:00 am a 10:00 pm.</p>
+    </div>
+  </div>
+</section>

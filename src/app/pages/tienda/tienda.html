@@ -1,0 +1,41 @@
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4 text-center">Realizar Pedido</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Datos del Pedido</h5>
+
+            <label class="form-label fw-bold">Nombre</label>
+            <input class="form-control mb-3" type="text" placeholder="Ej. Ana Torres" [(ngModel)]="nombre" />
+
+            <label class="form-label fw-bold">Plato Deseado</label>
+            <select class="form-select mb-3" [(ngModel)]="plato">
+              <option value="">Seleccione un plato...</option>
+              <option *ngFor="let p of productos" [value]="p.nombre" [disabled]="p.stock === 0">{{ p.nombre }}</option>
+            </select>
+
+            <label class="form-label fw-bold">Tipo de Atención</label>
+            <select class="form-select mb-3" [(ngModel)]="atencion">
+              <option value="">Seleccione...</option>
+              <option value="Salon">Consumo en el local</option>
+              <option value="Delivery">Delivery</option>
+            </select>
+
+            <div *ngIf="atencion === 'Delivery'">
+              <label class="form-label fw-bold">Dirección</label>
+              <input class="form-control mb-3" type="text" placeholder="Av. Los Pinos 123" [(ngModel)]="direccion" />
+            </div>
+
+            <button class="btn btn-success w-100" (click)="procesarPedido()">Procesar Pedido</button>
+
+            <div class="alert mt-3" *ngIf="mensaje !== ''" [ngClass]="esError ? 'alert-danger' : 'alert-success'">
+              {{ mensaje }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

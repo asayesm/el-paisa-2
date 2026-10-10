@@ -1,0 +1,20 @@
+<section class="container py-5">
+  <h2 class="mb-4">Mi Cuenta</h2>
+
+  <div class="card text-center p-4" *ngIf="usuario === null">
+    <p>Inicia sesión para ver los datos de tu cuenta.</p>
+    <a class="btn btn-warning" routerLink="/login">Iniciar sesión</a>
+  </div>
+
+  <div class="card" *ngIf="usuario !== null">
+    <div class="card-body">
+      <h5>{{ usuario.nombre }}</h5>
+      <p>Usuario: {{ usuario.usuario }}</p>
+      <p>Correo: {{ usuario.correo | lowercase }}</p>
+      <p>Rol: {{ usuario.rol | uppercase }}</p>
+      <p>Ingreso: {{ usuario.fechaIngreso | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <a class="btn btn-dark me-2" routerLink="/dashboard">Ir al Dashboard</a>
+      <button class="btn btn-danger" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+</section>

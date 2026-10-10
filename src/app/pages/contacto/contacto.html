@@ -1,0 +1,36 @@
+<section class="container py-5">
+  <h2 class="mb-4">Contacto</h2>
+  <div class="row g-4">
+    <div class="col-md-5">
+      <div class="card bg-dark text-white h-100">
+        <div class="card-body">
+          <h5 class="text-warning">Cevichería El Paisa</h5>
+          <p><i class="bi bi-geo-alt"></i> Av. Túpac Amaru 590, Santa Anita, Lima</p>
+          <p><i class="bi bi-telephone"></i> +51 999 888 777</p>
+          <p><i class="bi bi-envelope"></i> contacto&#64;cevicheriaelpaisa.pe</p>
+          <p><i class="bi bi-clock"></i> Lunes a domingo de 8:00 am a 10:00 pm</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-body">
+          <label class="form-label">Nombre</label>
+          <input class="form-control mb-3" type="text" [(ngModel)]="nombre" />
+
+          <label class="form-label">Correo</label>
+          <input class="form-control mb-3" type="email" [(ngModel)]="correo" />
+
+          <label class="form-label">Mensaje</label>
+          <textarea class="form-control mb-3" rows="4" [(ngModel)]="mensaje"></textarea>
+
+          <button class="btn btn-warning" (click)="enviar()">Enviar</button>
+
+          <div class="alert alert-danger mt-3" *ngIf="error !== ''">{{ error }}</div>
+          <div class="alert alert-success mt-3" *ngIf="enviado">¡Gracias! Te responderemos pronto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

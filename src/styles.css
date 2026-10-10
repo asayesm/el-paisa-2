@@ -1,0 +1,10 @@
+.foto-plato {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card.agotado {
+  filter: grayscale(1);
+  opacity: 0.6;
+}

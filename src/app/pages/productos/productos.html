@@ -1,0 +1,35 @@
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4">Nuestra carta</h2>
+
+    <div class="row g-2 mb-4">
+      <div class="col-md-4">
+        <select class="form-select" [(ngModel)]="categoriaSeleccionada">
+          <option *ngFor="let c of categorias" [value]="c">{{ c }}</option>
+        </select>
+      </div>
+      <div class="col-md-8">
+        <input class="form-control" type="text" placeholder="Buscar por nombre" [(ngModel)]="busqueda" />
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4" *ngFor="let p of filtrarProductos()">
+        <div class="card h-100" [ngClass]="{ agotado: p.stock === 0 }">
+          <img [src]="p.imagen" class="card-img-top foto-plato" [alt]="p.nombre" />
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ p.nombre }}</h5>
+            <p class="card-text">{{ p.categoria }}</p>
+            <p class="fw-bold">{{ p.precio | currency: 'S/ ' }}</p>
+            <p>Stock: {{ p.stock }}</p>
+            <button class="btn btn-warning" (click)="seleccionarPlato(p)">
+              {{ p.stock === 0 ? 'Agotado' : 'Pedir' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-4" *ngIf="filtrarProductos().length === 0">No se encontraron platos.</p>
+  </div>
+</section>

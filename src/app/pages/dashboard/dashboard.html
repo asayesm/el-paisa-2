@@ -1,0 +1,53 @@
+<section class="container py-5">
+  <h2>Bienvenido, {{ usuario.nombre }}</h2>
+  <p>Rol: {{ usuario.rol | uppercase }} - Correo: {{ usuario.correo }} - Ingreso: {{ usuario.fechaIngreso | date: 'dd/MM/yyyy HH:mm' }}</p>
+  <button class="btn btn-danger mb-4" (click)="cerrarSesion()">Cerrar sesión</button>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="card text-bg-primary">
+        <div class="card-body">
+          <h5>Platos en carta</h5>
+          <p class="fs-2 mb-0">{{ productos.length }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-success">
+        <div class="card-body">
+          <h5>Stock total</h5>
+          <p class="fs-2 mb-0">{{ totalStock() }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-bg-danger">
+        <div class="card-body">
+          <h5>Platos agotados</h5>
+          <p class="fs-2 mb-0">{{ totalAgotados() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Plato</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productos" [ngClass]="{ 'table-danger': p.stock === 0 }">
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.categoria }}</td>
+          <td>{{ p.precio | currency: 'S/ ' }}</td>
+          <td>{{ p.stock }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

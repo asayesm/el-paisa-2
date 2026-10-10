@@ -1,0 +1,27 @@
+<div class="bg-warning text-center fw-bold p-2 text-dark">{{ notificacion }}</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"><img src="img/logo.png" alt="El Paisa" height="40" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/ofertas">Ofertas</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/tienda">Tienda</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/mi-cuenta">Mi Cuenta</a></li>
+      </ul>
+      <div *ngIf="auth.estaLogueado()">
+        <a class="btn btn-outline-warning btn-sm me-2" routerLink="/dashboard">Dashboard</a>
+        <button class="btn btn-danger btn-sm" (click)="cerrarSesion()">Cerrar sesión</button>
+      </div>
+      <div *ngIf="!auth.estaLogueado()">
+        <a class="btn btn-warning btn-sm" routerLink="/login">Iniciar sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>

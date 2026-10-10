@@ -1,0 +1,22 @@
+<section class="container py-5">
+  <h2 class="mb-4">Ofertas</h2>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-3" *ngFor="let o of ofertas">
+      <div class="card h-100">
+        <img [src]="buscarProducto(o.productoId)?.imagen" class="card-img-top foto-plato" [alt]="o.titulo" />
+        <div class="card-body">
+          <span class="badge fs-6 mb-2" [ngStyle]="{ 'background-color': colorDescuento(o.descuento) }">-{{ o.descuento | percent }}</span>
+          <h5 class="card-title">{{ o.titulo }}</h5>
+          <p class="card-text">{{ o.descripcion }}</p>
+          <p>
+            <span class="text-decoration-line-through text-muted me-2">{{ buscarProducto(o.productoId)?.precio | currency: 'S/ ' }}</span>
+            <span class="fw-bold text-success">{{ precioFinal(o) | currency: 'S/ ' }}</span>
+          </p>
+          <p class="small">Válido hasta: {{ o.vence | date: 'dd/MM/yyyy' }}</p>
+          <a class="btn btn-warning w-100" routerLink="/tienda" [queryParams]="{ plato: buscarProducto(o.productoId)?.nombre }">Pedir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
