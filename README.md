@@ -28,8 +28,8 @@ Docente: Kevin Edgar Salazar Ruiz
 Requisitos: Node.js y Angular CLI (`npm install -g @angular/cli`).
 
 ```bash
-git clone <url-del-repositorio>
-cd el-paisa
+git clone https://github.com/asayesm/el-paisa-2.git
+cd el-paisa-2
 npm install --legacy-peer-deps
 ```
 
@@ -94,4 +94,14 @@ src/app
 
 ## Despliegue
 
-Enlace del proyecto desplegado: _pendiente_
+- Proyecto desplegado: https://asayesm.github.io/el-paisa-2/
+- Repositorio: https://github.com/asayesm/el-paisa-2
+
+Para ver los productos en la versión publicada, JSON Server debe estar corriendo en la misma computadora (`npm run api`).
+
+Para volver a publicar en GitHub Pages:
+
+```bash
+ng build --base-href /el-paisa-2/
+npx angular-cli-ghpages --dir=dist/el-paisa/browser
+```
