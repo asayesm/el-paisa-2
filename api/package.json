@@ -1,0 +1,14 @@
+{
+  "name": "el-paisa-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "json-server db.json --port ${PORT:-3000} --host 0.0.0.0"
+  },
+  "dependencies": {
+    "json-server": "1.0.0-beta.15"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -68,7 +68,10 @@ ng serve
 
 ## API (JSON Server)
 
-Los datos están en `db.json`:
+Los datos están en `api/db.json`. La carpeta `api/` tiene su propio `package.json` para desplegarla sola en Render.
+
+- API publicada: https://asayesm.github.io/el-paisa-2/api/productos y /api/ofertas (archivos JSON en `public/api`, generados desde `api/db.json`)
+- En desarrollo (`ng serve`) la app usa `http://localhost:3000` (`src/environments/environment.development.ts`); en producción (`ng build`) usa la API publicada (`src/environments/environment.ts`).
 
 | Endpoint | Descripción |
 |---|---|
@@ -94,10 +97,13 @@ src/app
 
 ## Despliegue
 
-- Proyecto desplegado: https://asayesm.github.io/el-paisa-2/
+- Frontend (GitHub Pages): https://asayesm.github.io/el-paisa-2/
+- API: https://asayesm.github.io/el-paisa-2/api/productos
 - Repositorio: https://github.com/asayesm/el-paisa-2
 
-Para ver los productos en la versión publicada, JSON Server debe estar corriendo en la misma computadora (`npm run api`).
+El backend está en el plan gratuito de Render: se apaga tras unos 15 minutos sin uso y la primera petición puede tardar ~50 segundos en responder.
+
+Configuración del servicio en Render (Web Service): Root Directory `api`, Build Command `npm install`, Start Command `npm start`.
 
 Para volver a publicar en GitHub Pages:
 
